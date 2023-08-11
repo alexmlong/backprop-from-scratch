@@ -1,5 +1,4 @@
-from backprop import forward_propagate_one_layer
-
+from backprop import forward_propagate, forward_propagate_one_layer
 
 def test_forward_propagate_one_layer():
     previous_layer_values = [0, 0, 0, 9]
@@ -37,7 +36,7 @@ def test_forward_propagate():
     # 2nd hidden layer values:
     # 2, 0, 8
 
-    expected_output = 6 + 0 + 8
+    expected_output = [6 + 0 + 8]
 
     output = forward_propagate(input_values, layer_weight_matrices)
     assert expected_output == output
