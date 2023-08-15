@@ -27,13 +27,18 @@ def forward_propagate_one_layer(previous_layer_values, weight_matrix):
         next_layer_values.append(output_value)
     return next_layer_values
 
-def forward_propagate(input_values, layer_weight_matrices):
+def calc_forward_propagated_values(input_values, layer_weight_matrices):
     previous_layer_values = input_values
-
+    layer_neuron_values = []
     for weight_matrix in layer_weight_matrices:
         previous_layer_values = forward_propagate_one_layer(previous_layer_values, weight_matrix)
+        layer_neuron_values.append(previous_layer_values)
 
-    return previous_layer_values
+    return layer_neuron_values
+
+def forward_propagate(input_values, layer_weight_matrices):
+    layer_neuron_values = calc_forward_propagated_values(input_values, layer_weight_matrices)
+    return layer_neuron_values[-1]
 
 def calc_error(input_values, layer_weight_matrices, expected_output_values):
     prediction = forward_propagate(input_values, layer_weight_matrices)

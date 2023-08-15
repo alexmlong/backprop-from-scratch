@@ -1,4 +1,4 @@
-from backprop import calc_error, forward_propagate, forward_propagate_one_layer, train_on_one_sample
+from backprop import calc_error, calc_forward_propagated_values, forward_propagate, forward_propagate_one_layer, train_on_one_sample
 
 def test_forward_propagate_one_layer():
     previous_layer_values = [0, 0, 0, 9]
@@ -12,6 +12,24 @@ def test_forward_propagate_one_layer():
 
     next_layer_values = forward_propagate_one_layer(previous_layer_values, weight_matrix)
     assert expected_next_layer_values == next_layer_values
+
+def test_calc_forward_propagated_values():
+    input_values = [2]
+    layer_weight_matrices = [
+        [
+            [1],
+            [0],
+            [2],
+        ],
+        [
+            [3, 2, 1],
+        ]
+    ]
+    layer_neuron_values = calc_forward_propagated_values(input_values, layer_weight_matrices)
+    assert layer_neuron_values == [
+        [2, 0, 4],
+        [10]
+    ]
 
 def test_forward_propagate():
     input_values = [2]
