@@ -1,4 +1,4 @@
-from backprop import forward_propagate, forward_propagate_one_layer
+from backprop import calc_error, forward_propagate, forward_propagate_one_layer, train_on_one_sample
 
 def test_forward_propagate_one_layer():
     previous_layer_values = [0, 0, 0, 9]
@@ -40,3 +40,11 @@ def test_forward_propagate():
 
     output = forward_propagate(input_values, layer_weight_matrices)
     assert expected_output == output
+
+def test_calc_error():
+    input_values = [3]
+    layer_weight_matrices = [[[1]]]
+    expected_output_values = [9]
+    expected_error = 6
+    error = calc_error(input_values, layer_weight_matrices, expected_output_values)
+    assert expected_error == error

@@ -34,3 +34,8 @@ def forward_propagate(input_values, layer_weight_matrices):
         previous_layer_values = forward_propagate_one_layer(previous_layer_values, weight_matrix)
 
     return previous_layer_values
+
+def calc_error(input_values, layer_weight_matrices, expected_output_values):
+    prediction = forward_propagate(input_values, layer_weight_matrices)
+    error = abs(prediction[0] - expected_output_values[0])
+    return error
