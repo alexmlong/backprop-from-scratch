@@ -1,5 +1,7 @@
 # backprop-from-scratch
 
+https://github.com/alexmlong/backprop-from-scratch
+
 My attempt to implement back propagation from scratch. I did use online resources but I did not use any AI tools and did not use tutorials that actually provided code. I only used resources that talked about back prop at a conceptual level and then tried to implement it based on my understanding.
 
 Key resources used:
